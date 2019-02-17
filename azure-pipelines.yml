@@ -1,0 +1,13 @@
+pool:
+  vmImage: 'macOS 10.13'
+
+steps:
+- task: Xcode@5
+  inputs:
+    actions: 'build'
+    sdk: 'iphoneos'
+    scheme: 'HelloiOS'
+    configuration: 'Debug'
+    xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
+    exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
+    useXcpretty: 'false'
